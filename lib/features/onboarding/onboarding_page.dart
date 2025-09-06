@@ -1,6 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding_app/colors/colors.dart';
+import 'package:flutter_onboarding_app/constants/colors.dart';
 import 'package:flutter_onboarding_app/common_widgets/my_button.dart';
 import 'onboarding_data.dart';
 

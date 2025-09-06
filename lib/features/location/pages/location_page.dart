@@ -1,58 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_onboarding_app/colors/colors.dart';
-import 'package:flutter_onboarding_app/common_widgets/my_button.dart';
-import 'package:flutter_onboarding_app/features/location/location_data.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:provider/provider.dart';
+import '../../../common_widgets/my_button.dart';
+import '../../../constants/colors.dart';
+import '../data/location_data.dart';
+import '../providers/location_provider.dart';
 
-class LocationPage extends StatefulWidget {
+class LocationPage extends StatelessWidget {
   const LocationPage({super.key});
-
-  @override
-  State<LocationPage> createState() => _LocationPageState();
-}
-
-class _LocationPageState extends State<LocationPage> {
-  String _location = "No location selected yet";
-
-  Future<void> _getLocation() async {
-    bool serviceEnabled;
-    LocationPermission permission;
-
-    // Check if location service is enabled
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      setState(() => _location = "Location services are disabled.");
-      return;
-    }
-
-    // Check permission
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        setState(() => _location = "Permission denied");
-        return;
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      setState(
-        () => _location =
-            "Permission permanently denied. Please enable from settings.",
-      );
-      return;
-    }
-
-    // Get current position
-    final pos = await Geolocator.getCurrentPosition();
-    setState(() {
-      _location = "Selected Location: ${pos.latitude}, ${pos.longitude}";
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     final data = locationData[0];
+    final locationProvider = Provider.of<LocationProvider>(context);
+
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       body: Center(
@@ -73,12 +33,28 @@ class _LocationPageState extends State<LocationPage> {
               const SizedBox(height: 30),
               Image.asset(data.image),
               const SizedBox(height: 30),
-              Text(_location, style: TextStyle(color: AppColors.onPrimary)),
+
+              // Loader or Location text
+              locationProvider.isLoading
+                  ? const CircularProgressIndicator(color: Colors.white)
+                  : Text(
+                      locationProvider.location,
+                      style: TextStyle(color: AppColors.onPrimary),
+                      textAlign: TextAlign.center,
+                    ),
+
               const SizedBox(height: 30),
 
               // Use Current Location Button
               GestureDetector(
-                onTap: _getLocation, // 🔑 moved here
+                onTap: () async {
+                  await locationProvider.fetchLocation();
+                  if (context.mounted &&
+                      !locationProvider.isLoading &&
+                      locationProvider.location.isNotEmpty) {
+                    Navigator.pushNamed(context, "/alarm");
+                  }
+                },
                 child: Container(
                   height: 50,
                   decoration: BoxDecoration(
@@ -106,6 +82,7 @@ class _LocationPageState extends State<LocationPage> {
               ),
 
               const SizedBox(height: 10),
+
               MyButton(
                 onTap: () => Navigator.pushNamed(context, "/alarm"),
                 buttonText: "Home",

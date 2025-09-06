@@ -1,4 +1,4 @@
-import 'location_model.dart';
+import '../models/location_model.dart';
 
 final List<LocationModel> locationData = [
   LocationModel(
