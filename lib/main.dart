@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_timezone/flutter_native_timezone.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
@@ -12,7 +12,7 @@ void main() async {
 
   // timezone setup - required for correct zonedSchedule behavior
   tz.initializeTimeZones();
-  final String tzName = await FlutterNativeTimezone.getLocalTimezone();
+  final String tzName = await FlutterTimezone.getLocalTimezone();
   tz.setLocalLocation(tz.getLocation(tzName));
 
   runApp(const MyApp());
