@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Onboarding App',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Onboarding App',
       initialRoute: "/",
       routes: {
         "/": (context) => const OnboardingPage(),
