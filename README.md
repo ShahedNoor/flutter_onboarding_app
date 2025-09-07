@@ -7,7 +7,7 @@ This project was built as part of a developer evaluation task.
 
 ## 📷 Screenshots
 
-![Onboarding App Screenshot]("https://i.ibb.co.com/Z1VTst3b/Onboarding-App-Screenshot.png)
+![Onboarding App Screenshot](https://i.ibb.co.com/Z1VTst3b/Onboarding-App-Screenshot.png)
 
 ---
 
