@@ -15,23 +15,22 @@ class LocationPage extends StatefulWidget {
 
 class _LocationPageState extends State<LocationPage> {
   @override
-void initState() {
-  super.initState();
-  _requestPermissions();
-}
-
-Future<void> _requestPermissions() async {
-  // Notification permission
-  if (await Permission.notification.isDenied) {
-    await Permission.notification.request();
+  void initState() {
+    super.initState();
+    _requestNotificationPermission();
   }
 
-  // Location permission
-  if (await Permission.locationWhenInUse.isDenied) {
-    await Permission.locationWhenInUse.request();
+  Future<void> _requestNotificationPermission() async {
+    if (await Permission.notification.isDenied) {
+      await Permission.notification.request();
+    }
   }
-}
 
+  Future<void> _requestLocationPermission() async {
+    if (await Permission.locationWhenInUse.isDenied) {
+      await Permission.locationWhenInUse.request();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +72,7 @@ Future<void> _requestPermissions() async {
               // Use Current Location Button
               GestureDetector(
                 onTap: () async {
+                  await _requestLocationPermission();
                   await locationProvider.fetchLocation();
                   if (context.mounted &&
                       !locationProvider.isLoading &&
