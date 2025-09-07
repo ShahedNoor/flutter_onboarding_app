@@ -5,14 +5,14 @@ import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:android_intent_plus/android_intent.dart';
 import 'package:permission_handler/permission_handler.dart';
-import '../models/alarm_model.dart';
+import '../features/alarm/models/alarm_model.dart';
 
-class AlarmService {
+class AlarmHelper {
   final FlutterLocalNotificationsPlugin _notifications =
       FlutterLocalNotificationsPlugin();
   bool _hasExactAlarmPermission = false;
 
-  AlarmService() {
+  AlarmHelper() {
     tz.initializeTimeZones();
     _initNotifications();
   }

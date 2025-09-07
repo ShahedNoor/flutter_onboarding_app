@@ -4,7 +4,7 @@ import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:provider/provider.dart';
 
-import 'features/onboarding/onboarding_page.dart';
+import 'features/onboarding/pages/onboarding_page.dart';
 import 'features/location/pages/location_page.dart';
 import 'features/location/providers/location_provider.dart';
 import 'features/alarm/pages/alarm_page.dart';

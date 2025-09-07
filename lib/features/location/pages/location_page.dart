@@ -58,7 +58,7 @@ class _LocationPageState extends State<LocationPage> {
               Image.asset(data.image),
               const SizedBox(height: 30),
 
-              // Loader or Location text
+              // Loader or location text
               locationProvider.isLoading
                   ? const CircularProgressIndicator(color: Colors.white)
                   : Text(
@@ -69,7 +69,7 @@ class _LocationPageState extends State<LocationPage> {
 
               const SizedBox(height: 30),
 
-              // Use Current Location Button
+              // Use current location button
               GestureDetector(
                 onTap: () async {
                   await _requestLocationPermission();

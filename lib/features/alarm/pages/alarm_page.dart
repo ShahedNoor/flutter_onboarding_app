@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import '../../location/providers/location_provider.dart';
 import '../providers/alarm_provider.dart';
 import '../models/alarm_model.dart';
-import '../helpers/alarm_service.dart';
+import '../../../helpers/alarm_helper.dart';
 
 class AlarmPage extends StatefulWidget {
   const AlarmPage({super.key});
@@ -17,13 +17,13 @@ class AlarmPage extends StatefulWidget {
 }
 
 class _AlarmPageState extends State<AlarmPage> {
-  late AlarmService _alarmService;
+  late AlarmHelper _alarmService;
   bool _hasExactAlarmPermission = false;
 
   @override
   void initState() {
     super.initState();
-    _alarmService = AlarmService();
+    _alarmService = AlarmHelper();
     _checkPermission();
   }
 

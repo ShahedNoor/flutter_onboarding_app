@@ -6,7 +6,7 @@ class AlarmProvider with ChangeNotifier {
 
   List<AlarmModel> get alarms => _alarms;
 
-  /// Adds an alarm and returns the created AlarmModel (so callers can schedule it).
+  // Add an alarm and return to AlarmModel (so that callers can schedule it).
   AlarmModel addAlarm(DateTime time) {
     final id = time.millisecondsSinceEpoch ~/ 1000; // unique id
     final alarm = AlarmModel(id: id, time: time, enabled: true);
