@@ -14,9 +14,8 @@ This project was built as part of a developer evaluation task.
 ## 🎥 Demo Video
 
 You can watch the app running here:  
-👉 [Click to watch on Loom](https://www.loom.com/share/5083283538f145369b5dd379dd97ee30?sid=6c569418-9904-485d-917a-465453444f79)
-
-[![Watch the video](https://i.ibb.co.com/1tp5Rzkr/image-with-play-button.png)](https://youtube.com/shorts/3_H4hI-yyIg?si=Xj2ytBPSMAm7Hw42)
+⏯️ [Click to watch on Loom](https://www.loom.com/share/5083283538f145369b5dd379dd97ee30?sid=6c569418-9904-485d-917a-465453444f79)
+▶️ [Click to watch on Youtube](https://youtube.com/shorts/3_H4hI-yyIg?si=Xj2ytBPSMAm7Hw42)
 
 ---
 
