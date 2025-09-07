@@ -1,12 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import '../../../common_widgets/my_button.dart';
 import '../../../constants/colors.dart';
 import '../data/location_data.dart';
 import '../providers/location_provider.dart';
 
-class LocationPage extends StatelessWidget {
+class LocationPage extends StatefulWidget {
   const LocationPage({super.key});
+
+  @override
+  State<LocationPage> createState() => _LocationPageState();
+}
+
+class _LocationPageState extends State<LocationPage> {
+  @override
+void initState() {
+  super.initState();
+  _requestPermissions();
+}
+
+Future<void> _requestPermissions() async {
+  // Notification permission
+  if (await Permission.notification.isDenied) {
+    await Permission.notification.request();
+  }
+
+  // Location permission
+  if (await Permission.locationWhenInUse.isDenied) {
+    await Permission.locationWhenInUse.request();
+  }
+}
+
 
   @override
   Widget build(BuildContext context) {
