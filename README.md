@@ -7,13 +7,7 @@ This project was built as part of a developer evaluation task.
 
 ## 📷 Screenshots
 
-| 1. Onboarding Page | 2. Notification Permission | 3. Location Permission |
-|--------------------|-----------------------------|-------------------------|
-| ![Onboarding](https://i.ibb.co.com/Dg8KdLYn/Screenshot-2025-09-07-17-38-09-654-com-example-flutter-onboarding-app.jpg) | ![Notification Permission](https://i.ibb.co.com/RLj6hR1/Screenshot-2025-09-07-17-38-20-149-com-google-android-permissioncontroller.jpg) | ![Location Permission](https://i.ibb.co.com/JFBjByVy/Screenshot-2025-09-07-19-04-30-577-com-google-android-permissioncontroller.jpg) |
-
-| 4. Home Page | 5. Alarm Page | 6. Alarm Notification |
-|--------------|---------------|------------------------|
-| ![Home](https://i.ibb.co.com/My4nZnBQ/Screenshot-2025-09-07-17-38-24-647-com-example-flutter-onboarding-app.jpg) | ![Alarm](https://i.ibb.co.com/bgP6MX8B/Screenshot-2025-09-07-17-38-43-541-com-example-flutter-onboarding-app.jpg) | ![Alarm Notification](https://i.ibb.co.com/HLTxhkBk/Screenshot-2025-09-07-17-39-09-856-com-example-flutter-onboarding-app.jpg) |
+![Onboarding App Screenshot]("https://i.ibb.co.com/Z1VTst3b/Onboarding-App-Screenshot.png)
 
 ---
 
